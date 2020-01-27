@@ -1,9 +1,32 @@
 <template>
 <div>
+    <v-app-bar
+      app
+      color="primary"
+      dark      
+      elevation
+      clipped-left
+    >
+      <v-app-bar-nav-icon @click="drawer = !drawer" />
+      <v-toolbar-title>Pantrin</v-toolbar-title>
+
+      <v-spacer></v-spacer>
+
+      <v-btn
+        href="https://github.com/vuetifyjs/vuetify/releases/latest"
+        target="_blank"
+        text
+      >
+        <span class="mr-2">Latest Release</span>
+        <v-icon>mdi-open-in-new</v-icon>
+      </v-btn>
+    </v-app-bar>
+
     <v-card >
 <v-navigation-drawer
+        v-model="drawer"
       app
-      clipped
+      :clipped="$vuetify.breakpoint.lgAndUp"
       color="grey lighten-4"
     >
 
@@ -71,6 +94,7 @@
         }
     },
     data: () => ({
+        drawer:null,
         menus : [
         { menuid : 1, menuname:"Menu - 1", parentid : 0},
         { menuid : 2, menuname:"Menu - 1 - 1", parentid : 1},
