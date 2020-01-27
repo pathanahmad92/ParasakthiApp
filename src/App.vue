@@ -1,28 +1,40 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+
+  <v-app>
+    <HeaderComponent/>
+
+    <SidenavComponent></SidenavComponent>
+
+    <v-content>
+      <v-container
+        fluid
+      >
+      <v-row>
+                <v-col cols="12">
+          <router-view/>
+                </v-col>
+      </v-row>
+      </v-container>
+    </v-content>
+  </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import HeaderComponent from './components/shared/header';
+import SidenavComponent from './components/shared/sidenav';
+import router from './routes/router';
 
 export default {
-  name: 'app',
-  components: {
-    HelloWorld
-  }
-}
-</script>
+  name: 'App',
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+  components: {
+    HeaderComponent,
+    SidenavComponent
+  },
+
+  data: () => ({
+    //
+  }),
+  router
+};
+</script>
